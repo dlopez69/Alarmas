@@ -1,16 +1,17 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config(); 
 
 const transporter = nodemailer.createTransport({
   service: "gmail", // O cualquier otro proveedor de correo
   auth: {
-    user: "vekinq1@gmail.com", // Tu correo
-    pass: "lgdn mgpm mgrr qukz", // Tu contraseña
+    user: process.env.EMAIL_USER, // Tu correo
+    pass: process.env.EMAIL_PASS, // Tu contraseña
   },
 });
 
 const enviarCorreoAlarma = (email, descripcion, fecha) => {
   const mailOptions = {
-    from: "vekinq1@gmail.com",
+    from: process.env.EMAIL_USER,
     to: email,
     subject: "Recordatorio de Alarma",
     text: `Tu alarma para ${descripcion} está programada para ${new Date(

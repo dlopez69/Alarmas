@@ -6,6 +6,7 @@ const alarmasRoutes = require("./routes/alarmas");
 const db = require("./config/db");
 const verificarToken = require("./middleware/verificarToken"); // Importar el middleware
 const enviarCorreoAlarma = require("./services/emailService");
+require("dotenv").config();
 
 // Middleware para parsear JSON
 app.use(express.json());
